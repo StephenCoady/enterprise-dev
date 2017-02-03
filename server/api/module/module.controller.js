@@ -17,8 +17,11 @@ function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
     if(entity) {
+      console.log('something here!');
+      console.log(entity);
       return res.status(statusCode).json(entity);
     }
+    console.log('nothing here!');
     return null;
   };
 }
@@ -72,7 +75,7 @@ export function index(req, res) {
 
 // Gets a single Module from the DB
 export function show(req, res) {
-  return Module.findById(req.params.id).exec()
+  return Module.find().where('_id').equals(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

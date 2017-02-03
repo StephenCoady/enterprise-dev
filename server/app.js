@@ -27,7 +27,7 @@ var app = express();
 var server = http.createServer(app);
 require('./config/express').default(app);
 require('./routes').default(app);
-
+ 
 // Start server
 function startServer() {
   app.angularFullstack = server.listen(config.port, config.ip, function() {

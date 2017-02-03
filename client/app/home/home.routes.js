@@ -6,6 +6,7 @@ export default function routes($routeProvider) {
   $routeProvider.when('/home', {
     template: require('./home.html'),
     controller: 'HomeController',
-    controllerAs: 'home'
+    controllerAs: 'home',
+    authenticate: true
   });
 }

@@ -15,7 +15,7 @@ export default angular.module('enterpriseDevApp.home', ['enterpriseDevApp.auth',
     var user_id;
     
     modules.getAll = function(user_id) {
-      return $http.get('/api/modules/' + user_id);
+      return $http.get('/api/modules/user/' + user_id);
     };
     
     
