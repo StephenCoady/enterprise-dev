@@ -65,7 +65,6 @@ function handleError(res, statusCode) {
 
 // Gets a list of Modules
 export function index(req, res) {
-  console.log(req);
   return Module.find().where('createdBy').equals(req.params.user_id).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));

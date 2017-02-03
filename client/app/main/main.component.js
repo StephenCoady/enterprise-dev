@@ -18,19 +18,6 @@ export class MainController {
     //     this.awesomeModules = response.data;
     //   });
   }
-
-  addModule() {
-    if(this.newModule) {
-      this.$http.post('/api/modules', {
-        name: this.newModule
-      });
-      this.newModule = '';
-    }
-  }
- 
-  deleteModule(module) {
-    this.$http.delete(`/api/modules/${module._id}`);
-  }
 }
 
 export default angular.module('enterpriseDevApp.main', [ngRoute])
