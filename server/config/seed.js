@@ -4,44 +4,15 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Module from '../api/module/module.model';
 import User from '../api/user/user.model';
 
-Thing.find({}).remove()
-  .then(() => {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '
-            + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '
-            + 'Stylus, Sass, and Less.'
-    }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, '
-            + 'AngularJS, and Node.'
-    }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep '
-            + 'tests alongside code. Automatic injection of scripts and '
-            + 'styles into your index.html'
-    }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more '
-            + 'code reusability and maximum scalability'
-    }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript '
-            + 'payload, minifies your scripts/css/images, and rewrites asset '
-            + 'names for caching.'
-    }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku '
-            + 'and openshift subgenerators'
-    });
-  });
-
+var user_id;
+var user_two_id;
+ 
 User.find({}).remove()
   .then(() => {
-    User.create({
+    return User.create({
       provider: 'local',
       name: 'Test User',
       email: 'test@example.com',
@@ -53,7 +24,52 @@ User.find({}).remove()
       email: 'admin@example.com',
       password: 'admin'
     })
+  })
+  .then(() => {
+    Module.find({}).remove()
+      .then(() => {
+        console.log('finished populating users');
+        var query = User.findOne({email: 'test@example.com'});
+        return query.then(function(doc){
+          user_id = doc._id;
+        })
+        .then(() => {
+          var userTwoQuery = User.findOne({email: "admin@example.com"});
+          return userTwoQuery.then(function(doc){
+            user_two_id = doc._id;
+          })
+        })
+      })
     .then(() => {
-      console.log('finished populating users');
+
+      return Module.create({
+          name: 'Enterprise Development',
+          info: 'Module to develop enterprise-level applications and web interfaces. Fullstack ' + 
+          'development practices with analysis of modern development tools and processes.',
+          createdBy: user_id
+        }, {
+          name: 'Cloud Technologies',
+          info: 'Build modern cloud infrastructures using tools such as AWS, Docker and Kubernetes.',
+            createdBy: user_id
+        }, {
+          name: 'Formal Specification',
+          info: 'Formally specify any system using precise language and formal processes.',
+            createdBy: user_id
+        }, {
+          name: 'Management Psychology',
+          info: 'Examine the difficulties and theories associated with management across many different backgrounds.',
+            createdBy: user_two_id
+        }, {
+          name: 'Final Year Project 1',
+          info: 'A module to manage fourth year students final year project.',
+            createdBy: user_two_id
+        }, {
+          name: 'Network Security',
+          info: 'Analysis of network and system security at both user and enterprise level.',
+            createdBy: user_two_id
+        })
+        .then(() => {
+          console.log('finished populating modules');
+        });
     });
   });

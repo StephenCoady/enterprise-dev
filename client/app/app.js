@@ -20,6 +20,7 @@ import {
 import _Auth from '../components/auth/auth.module';
 import account from './account';
 import admin from './admin';
+import home from './home';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
@@ -29,8 +30,7 @@ import util from '../components/util/util.module';
 import './app.css';
 
 angular.module('enterpriseDevApp', [ngCookies, ngResource, ngSanitize, ngRoute, uiBootstrap, _Auth,
-  account, admin, navbar, footer, main, constants, util
-])
+  account, admin, navbar, footer, main, constants, util, home])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
     'ngInject';

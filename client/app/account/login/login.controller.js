@@ -10,12 +10,17 @@ export default class LoginController {
     login: undefined
   };
   submitted = false;
+  
+
 
 
   /*@ngInject*/
   constructor(Auth, $location) {
     this.Auth = Auth;
     this.$location = $location;
+    this.user.email = "test@example.com";
+    this.user.password = "test";
+
   }
 
   login(form) {
@@ -28,7 +33,7 @@ export default class LoginController {
       })
         .then(() => {
           // Logged in, redirect to home
-          this.$location.path('/');
+          this.$location.path('/home');
         })
         .catch(err => {
           this.errors.login = err.message;

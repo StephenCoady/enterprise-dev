@@ -1,0 +1,34 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <img src="assets/images/logo.gif" alt="This is moodle" class="resizeBanner">
+    <h1>A Better Moodle</h1>
+    <p class="lead">Administer your moodle courses here</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Your Modules:
+            {{user}}
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-tabs nav-stacked" ng-repeat="module in modules">
+            <li><a href="#" uib-tooltip="{{module.info}}">{{module.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      
+      
+      <!-- <h1 class="page-header">Your Modules:</h1>
+      <ul class="nav nav-tabs nav-stacked" ng-repeat="module in modules">
+        <li><a href="#" uib-tooltip="{{module.info}}">{{module.name}}</a></li>
+      </ul> -->
+    </div>
+  </div>
+</div>
