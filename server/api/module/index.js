@@ -8,6 +8,7 @@ import * as auth from '../../auth/auth.service';
 var router = express.Router();
 
 router.get('/user/:user_id', controller.index);
+// router.get('/:id/resources', controller.getAllResources);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.upsert);

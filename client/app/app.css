@@ -52,6 +52,7 @@
 @import 'home/home.css';
 @import 'main/main.css';
 @import 'module/module.css';
+@import 'resource/resource.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
 @import '../components/oauth-buttons/oauth-buttons.css';

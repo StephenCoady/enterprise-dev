@@ -12,7 +12,7 @@ import uiBootstrap from 'angular-ui-bootstrap';
 // import ngMessages from 'angular-messages';
 // import ngValidationMatch from 'angular-validation-match';
 
-
+ 
 import {
   routeConfig
 } from './app.config';
@@ -22,6 +22,7 @@ import account from './account';
 import admin from './admin';
 import home from './home';
 import module from './module';
+import resource from './resource';
 import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
@@ -31,7 +32,7 @@ import util from '../components/util/util.module';
 import './app.css';
 
 angular.module('enterpriseDevApp', [ngCookies, ngResource, ngSanitize, ngRoute, uiBootstrap, _Auth,
-  account, admin, navbar, footer, main, constants, util, home, module])
+  account, admin, navbar, footer, main, constants, util, home, module, resource])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
     'ngInject';
