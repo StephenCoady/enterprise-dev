@@ -53,6 +53,9 @@
 @import 'main/main.css';
 @import 'module/module.css';
 @import 'resource/resource.css';
+@import 'resources/resources.css';
+@import '../components/angular-ui-sortable/demo/demo.css';
+@import '../components/angular-ui-sortable/test/sortable.tests.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
 @import '../components/oauth-buttons/oauth-buttons.css';

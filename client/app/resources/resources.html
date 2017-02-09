@@ -1,0 +1,25 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <img src="assets/images/logo.gif" alt="This is moodle" class="resizeBanner">
+    <h2>A Better Moodle</h2>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Your Resources:
+          </h3>
+        </div>
+        <div class="panel-body">
+          <ul class="nav nav-tabs nav-stacked" ng-repeat="resource in resources">
+            <li><a ng-href="/resources/{{resource._id}}">{{resource.name}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

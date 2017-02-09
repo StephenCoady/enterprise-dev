@@ -65,30 +65,18 @@ function handleError(res, statusCode) {
 
 // Gets a list of Modules
 export function index(req, res) {
-  return Module.find().where('createdBy').equals(req.params.user_id).exec()
+  return Module.find().where('createdBy')
+    .equals(req.params.user_id)
+    .exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// // Gets a list of Resources
-// export function getAllResources(req, res) {
-//   var module = Module.find().where('_id').equals(req.params.id)
-//     .then(() => {
-//       var resources = [];
-//       for (var i = 0; i < module.resources.length; i++) {
-//         Resource.find().where('_id').equals(module.resources[i].id).exec(function(err, response) {
-//           resources.push(response);
-//         })
-//       }
-//     })
-//     .then(handleEntityNotFound(res))
-//     .then(respondWithResult(res))
-//     .catch(handleError(res));
-// }
-
 // Gets a single Module from the DB
 export function show(req, res) {
-  return Module.find().where('_id').equals(req.params.id).exec()
+  return Module.find().where('_id')
+    .equals(req.params.id)
+    .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -106,7 +94,14 @@ export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Module.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+  return Module.findOneAndUpdate({
+      _id: req.params.id
+    }, req.body, {
+      new: true,
+      upsert: true,
+      setDefaultsOnInsert: true,
+      runValidators: true
+    }).exec()
 
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -114,7 +109,7 @@ export function upsert(req, res) {
 
 // Updates an existing Module in the DB
 export function patch(req, res) {
-  if(req.body._id) {
+  if (req.body._id) {
     delete req.body._id;
   }
   return Module.findById(req.params.id).exec()

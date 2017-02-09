@@ -19,9 +19,9 @@
         Resources
       </h3>
       <p>
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="resource in module.resources">
-            <a href="/resources/{{resource.id}}">{{resource}}</a>
+        <ul ui-sortable ng-model="resources">
+          <li ng-repeat="resource in resources">
+            <a href="/resources/{{resource._id}}">{{resource.name}}</a>
           </li>
         </ul>
       </p>
