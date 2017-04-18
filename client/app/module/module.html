@@ -14,21 +14,29 @@
         <p>{{module.info}}</p>
       <hr>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3>
         Resources
       </h3>
       <p>
-        <ul ui-sortable ng-model="resources">
-          <li ng-repeat="resource in resources">
+        <ul ui-sortable="sortableOptions" ng-model="resources" class="list-group">
+          <li ng-repeat="resource in moduleResources" class="list-group-item">
             <a href="/resources/{{resource._id}}">{{resource.name}}</a>
           </li>
         </ul>
       </p>
     </div>
-    <div class="col-md2 col-md6" style="display: block;">
+    <div class="col-md-4">
       <h3>
+        All Available Resources
       </h3>
+      <p>
+        <ul ui-sortable ng-model="resources" class="list-group">
+          <li ng-repeat="resource in resources" class="list-group-item">
+            <a href="/resources/{{resource._id}}">{{resource.name}}</a>
+          </li>
+        </ul>
+      </p>
     </div>
   </div>
 </div>
