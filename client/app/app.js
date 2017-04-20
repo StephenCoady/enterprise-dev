@@ -8,6 +8,7 @@ import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 import 'angular-ui-sortable';
+import angularFileUpload from 'angular-file-upload';
 
 const ngRoute = require('angular-route');
 
@@ -35,7 +36,7 @@ import util from '../components/util/util.module';
 import './app.css';
 
 angular.module('enterpriseDevApp', [ngCookies, ngResource, ngSanitize, ngRoute, uiBootstrap, _Auth,
-  account, admin, navbar, footer, main, constants, util, home, module, resource, resources, 'ui.sortable'])
+  account, admin, navbar, footer, main, constants, util, home, module, resource, resources, 'ui.sortable', 'angularFileUpload'])
   .config(routeConfig)
   .run(function($rootScope, $location, Auth) {
     'ngInject';

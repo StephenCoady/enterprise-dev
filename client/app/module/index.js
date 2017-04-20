@@ -12,8 +12,10 @@ export default angular.module('enterpriseDevApp.module', ['enterpriseDevApp.auth
     var modules = {};
     var resources = {};
     var dummyResources = [];
+
     $scope.resources = [];
     $scope.moduleResources = [];
+    $scope.rawScreens = [];
     var user_id;
 
     var id = $routeParams.Id;
@@ -56,49 +58,64 @@ export default angular.module('enterpriseDevApp.module', ['enterpriseDevApp.auth
       });
     });
 
-    $scope.sortableOptions = {
-      activate: function() {
-        console.log("activate");
-      },
-      beforeStop: function() {
-        console.log("beforeStop");
-      },
-      change: function() {
-        console.log("change");
-      },
-      create: function() {
-        console.log("create");
-      },
-      deactivate: function() {
-        console.log("deactivate");
-      },
-      out: function() {
-        console.log("out");
-      },
-      over: function() {
-        console.log("over");
-      },
-      receive: function() {
-        console.log("receive");
-      },
-      remove: function() {
-        console.log("remove");
-      },
-      sort: function() {
-        console.log("sort");
-      },
-      start: function() {
-        console.log("start");
-      },
-      update: function(e, ui) {
-        console.log("update");
-        console.log($scope.resources);
-      },
-      stop: function(e, ui) {
-        console.log("stop");
-        console.log($scope.resources);
-      }
-    };
+var tmpList = [];
+
+$scope.sortingLog = [];
+
+function createOptions (listName, otherListName) {
+  var _listName = listName;
+  var options = {
+    placeholder: "app",
+    connectWith: ".resources-container",
+    dropOnEmpty: true,
+    helper: function(e, item) {
+      console.log("list " + _listName + ": helper");
+      return item;
+    },
+    activate: function() {
+        console.log("list " + _listName + ": activate");
+    },
+    beforeStop: function() {
+        console.log("list " + _listName + ": beforeStop");
+    },
+    change: function() {
+        console.log("list " + _listName + ": change");
+    },
+    create: function() {
+        console.log("list " + _listName + ": create");
+    },
+    deactivate: function() {
+        console.log("list " + _listName + ": deactivate");
+    },
+    out: function() {
+        console.log("list " + _listName + ": out");
+    },
+    over: function() {
+        console.log("list " + _listName + ": over");
+    },
+    receive: function(e, ui) {
+        console.log("list " + _listName + ": receive");
+    },
+    remove: function(e, ui) {
+        console.log("list " + _listName + ": remove");
+    },
+    sort: function() {
+        console.log("list " + _listName + ": sort");
+    },
+    start: function() {
+        console.log("list " + _listName + ": start");
+    },
+    stop: function() {
+        console.log("list " + _listName + ": stop");
+    },
+    update: function(e, ui) {
+        console.log("list " + _listName + ": update");        
+    }
+  };
+  return options;
+}
+
+$scope.sortableOptionsList = [createOptions('A', 'B'), createOptions('B', 'A')];
 
   }])
   .name;

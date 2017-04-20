@@ -2,6 +2,8 @@
 
 import express from 'express';
 import mongoose from 'mongoose';
+import multer from 'multer';
+import path from 'path';
 mongoose.Promise = require('bluebird');
 import config from './config/environment';
 import http from 'http';
@@ -20,6 +22,9 @@ if(config.seedDB) {
 
 // Setup server
 var app = express();
+app.use(multer({
+  dest: path.join(__dirname, '/uploads/')
+}).any());
 var server = http.createServer(app);
 require('./config/express').default(app);
 require('./routes').default(app);

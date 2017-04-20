@@ -16,27 +16,25 @@
     </div>
     <div class="col-md-4">
       <h3>
-        Resources
+        Module Resources
       </h3>
-      <p>
-        <ul ui-sortable="sortableOptions" ng-model="resources" class="list-group">
-          <li ng-repeat="resource in moduleResources" class="list-group-item">
-            <a href="/resources/{{resource._id}}">{{resource.name}}</a>
-          </li>
-        </ul>
-      </p>
+        <div >
+          <ul ui-sortable="sortableOptionsList[0]" class="resources-container screen floatleft" ng-model="moduleResources">
+            <li class="resource" ng-repeat="resource in moduleResources">{{resource.name}}</li>
+            <li ng-show="moduleResources.length==0">&nbsp;</li>
+          </ul>
+        </div>
     </div>
     <div class="col-md-4">
       <h3>
         All Available Resources
       </h3>
-      <p>
-        <ul ui-sortable ng-model="resources" class="list-group">
-          <li ng-repeat="resource in resources" class="list-group-item">
-            <a href="/resources/{{resource._id}}">{{resource.name}}</a>
-          </li>
-        </ul>
-      </p>
+        <div >
+          <ul ui-sortable="sortableOptionsList[1]" class="resources-container screen floatleft" ng-model="resources">
+            <li class="resource" ng-repeat="resource in resources">{{resource.name}}</li>
+            <li ng-show="resources.length==0">&nbsp;</li>
+          </ul>
+        </div>
     </div>
   </div>
 </div>

@@ -13,6 +13,12 @@ var user_two_id;
 var resource_id;
 var resource_two_id;
 var resource_three_id;
+var resource_four_id;
+var resource_five_id;
+var resource_six_id;
+var resource_seven_id;
+var resource_eight_id;
+var resource_nine_id;
 
 User.find({}).remove()
   .then(() => {
@@ -50,17 +56,41 @@ User.find({}).remove()
               })
               .then(() => {
                 return Resource.create({
-                  name: 'Google Information',
+                  name: 'Cloud Resource 1',
                   createdBy: user_id,
-                  link: 'www.google.ie'
+                  link: 'www.cloud1.ie'
                 }, {
-                  name: 'Yahoo Information',
+                  name: 'Cloud Resource 2',
                   createdBy: user_id,
-                  link: 'www.yahoo.ie'
+                  link: 'www.cloud2.ie'
                 }, {
-                  name: 'Microsoft Information',
+                  name: 'Cloud Resource 3',
                   createdBy: user_id,
-                  link: 'www.bing.ie'
+                  link: 'www.cloud3.ie'
+                }, {
+                  name: 'Enterprise Resource 1',
+                  createdBy: user_id,
+                  link: 'www.ent1.ie'
+                }, {
+                  name: 'Enterprise Resource 2',
+                  createdBy: user_id,
+                  link: 'www.ent2.ie'
+                }, {
+                  name: 'Enterprise Resource 3',
+                  createdBy: user_id,
+                  link: 'www.ent3.ie'
+                }, {
+                  name: 'Formal Resource 1',
+                  createdBy: user_id,
+                  link: 'www.formal1.ie'
+                }, {
+                  name: 'Formal Resource 2',
+                  createdBy: user_id,
+                  link: 'www.formal2.ie'
+                }, {
+                  name: 'Formal Resource 3',
+                  createdBy: user_id,
+                  link: 'www.formal3.ie'
                 })
               })
               .then(() => {
@@ -71,14 +101,14 @@ User.find({}).remove()
                     .then(() => {
                       console.log('old modules removed');
                       var query = Resource.findOne({
-                        name: "Google Information"
+                        name: "Cloud Resource 1"
                       });
                       return query.then(function(doc) {
                           resource_id = doc._id;
                         })
                         .then(() => {
                           var query = Resource.findOne({
-                            name: "Yahoo Information"
+                            name: "Cloud Resource 2"
                           });
                           return query.then(function(doc) {
                             resource_two_id = doc._id;
@@ -86,10 +116,26 @@ User.find({}).remove()
                         })
                         .then(() => {
                           var query = Resource.findOne({
-                            name: "Microsoft Information"
+                            name: "Enterprise Resource 1"
                           });
                           return query.then(function(doc) {
                             resource_three_id = doc._id;
+                          })
+                        })
+                        .then(() => {
+                          var query = Resource.findOne({
+                            name: "Enterprise Resource 3"
+                          });
+                          return query.then(function(doc) {
+                            resource_four_id = doc._id;
+                          })
+                        })
+                        .then(() => {
+                          var query = Resource.findOne({
+                            name: "Formal Resource 1"
+                          });
+                          return query.then(function(doc) {
+                            resource_five_id = doc._id;
                           })
                         })
                     })
@@ -100,14 +146,11 @@ User.find({}).remove()
                             'development practices with analysis of modern development tools and processes.',
                           createdBy: user_id,
                           resources: [{
-                            id: resource_id,
+                            id: resource_three_id,
                             position: 0
                           }, {
-                            id: resource_two_id,
+                            id: resource_four_id,
                             position: 1
-                          }, {
-                            id: resource_three_id,
-                            position: 2
                           }]
                         }, {
                           name: 'Cloud Technologies',
@@ -119,66 +162,30 @@ User.find({}).remove()
                           }, {
                             id: resource_two_id,
                             position: 1
-                          }, {
-                            id: resource_three_id,
-                            position: 2
                           }]
                         }, {
                           name: 'Formal Specification',
                           info: 'Formally specify any system using precise language and formal processes.',
                           createdBy: user_id,
                           resources: [{
-                            id: resource_id,
-                            position: 0
-                          }, {
-                            id: resource_two_id,
-                            position: 1
-                          }, {
-                            id: resource_three_id,
+                            id: resource_five_id,
                             position: 2
                           }]
                         }, {
                           name: 'Management Psychology',
                           info: 'Examine the difficulties and theories associated with management across many different backgrounds.',
                           createdBy: user_two_id,
-                          resources: [{
-                            id: resource_id,
-                            position: 0
-                          }, {
-                            id: resource_two_id,
-                            position: 1
-                          }, {
-                            id: resource_three_id,
-                            position: 2
-                          }]
+                          resources: []
                         }, {
                           name: 'Final Year Project 1',
                           info: 'A module to manage fourth year students final year project.',
                           createdBy: user_two_id,
-                          resources: [{
-                            id: resource_id,
-                            position: 0
-                          }, {
-                            id: resource_two_id,
-                            position: 1
-                          }, {
-                            id: resource_three_id,
-                            position: 2
-                          }]
+                          resources: []
                         }, {
                           name: 'Network Security',
                           info: 'Analysis of network and system security at both user and enterprise level.',
                           createdBy: user_two_id,
-                          resources: [{
-                            id: resource_id,
-                            position: 0
-                          }, {
-                            id: resource_two_id,
-                            position: 1
-                          }, {
-                            id: resource_three_id,
-                            position: 2
-                          }]
+                          resources: []
                         })
                         .then(() => {
                           console.log('finished populating modules');

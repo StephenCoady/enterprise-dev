@@ -10,6 +10,7 @@ var router = express.Router();
 router.get('/user/:user_id', controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
+router.post('/upload/:user_id', controller.upload);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
 router.delete('/:id', controller.destroy);
