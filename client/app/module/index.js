@@ -70,6 +70,7 @@ function createOptions (listName, otherListName) {
     dropOnEmpty: true,
     helper: function(e, item) {
       console.log("list " + _listName + ": helper");
+      console.log(item);
       return item;
     },
     activate: function() {
@@ -95,6 +96,7 @@ function createOptions (listName, otherListName) {
     },
     receive: function(e, ui) {
         console.log("list " + _listName + ": receive");
+        console.log(item);
     },
     remove: function(e, ui) {
         console.log("list " + _listName + ": remove");
@@ -109,7 +111,7 @@ function createOptions (listName, otherListName) {
         console.log("list " + _listName + ": stop");
     },
     update: function(e, ui) {
-        console.log("list " + _listName + ": update");        
+        console.log("list " + _listName + ": update");    
     }
   };
   return options;
