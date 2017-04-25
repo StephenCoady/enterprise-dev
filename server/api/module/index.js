@@ -11,6 +11,7 @@ router.get('/user/:user_id', controller.index);
 // router.get('/:id/resources', controller.getAllResources);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
+router.post('/:module_id/:resource_id', controller.addResource);
 router.put('/:id', controller.upsert);
 router.patch('/:id', controller.patch);
 router.delete('/:id', controller.destroy);

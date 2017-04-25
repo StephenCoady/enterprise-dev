@@ -20,12 +20,7 @@
       </h3>
         <div >
           <ul ui-sortable="sortableOptionsList[0]" class="resources-container screen floatleft" ng-model="moduleResources">
-            <li class="resource" 
-            ad-drag="true"
-            ad-drag-data="resource"
-            ad-drag-begin="onDragStart($data, $dragElement, $event);"
-            ad-drag-end="onDragEnd($data, $dragElement, $lastDropElement, $event);"
-            ng-repeat="resource in moduleResources">{{resource.name}}</li>
+            <li class="resource" ng-repeat="resource in moduleResources">{{resource.name}}</li>
             <li ng-show="moduleResources.length==0">&nbsp;</li>
           </ul>
         </div>
@@ -36,12 +31,7 @@
       </h3>
         <div >
           <ul ui-sortable="sortableOptionsList[1]" class="resources-container screen floatleft" ng-model="resources">
-            <li class="resource"           
-            ad-drop="true"
-            ad-drop-over="onDragOver($data, $dragElement, $dropElement, $event);"
-            ad-drop-leave="onDragLeave($data, $dragElement, $dropElement, $event)"
-            ad-drop-end="onDrop($data, $dragElement, $dropElement, $event);"
-            ng-repeat="resource in resources">{{resource.name}}</li>
+            <li class="resource" ng-repeat="resource in resources">{{resource.name}}</li>
             <li ng-show="resources.length==0">&nbsp;</li>
           </ul>
         </div>

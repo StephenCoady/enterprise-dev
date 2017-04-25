@@ -29,6 +29,10 @@ export default angular.module('enterpriseDevApp.module', ['enterpriseDevApp.auth
     }, function(error) {
       console.log(error);
     });
+    
+    modules.addResource = function(resource_id){
+      return $http.post('/api/modules/' + $routeParams.Id + '/' + resource_id);
+    }
 
     resources.getAll = function(id) {
       return $http.get('/api/resources/user/' + id);
@@ -37,6 +41,8 @@ export default angular.module('enterpriseDevApp.module', ['enterpriseDevApp.auth
     resources.getOne = function(id) {
       return $http.get('/api/resources/' + id);
     }
+    
+    
 
     Auth.getCurrentUser().then(function(user) {
       user_id = user._id;
@@ -70,7 +76,6 @@ function createOptions (listName, otherListName) {
     dropOnEmpty: true,
     helper: function(e, item) {
       console.log("list " + _listName + ": helper");
-      console.log(item);
       return item;
     },
     activate: function() {
@@ -96,7 +101,7 @@ function createOptions (listName, otherListName) {
     },
     receive: function(e, ui) {
         console.log("list " + _listName + ": receive");
-        console.log(item);
+        modules.addResource(ui.item.sortable.model._id);
     },
     remove: function(e, ui) {
         console.log("list " + _listName + ": remove");

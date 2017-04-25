@@ -146,30 +146,25 @@ User.find({}).remove()
                             'development practices with analysis of modern development tools and processes.',
                           createdBy: user_id,
                           resources: [{
-                            id: resource_three_id,
-                            position: 0
+                            id: resource_three_id
                           }, {
-                            id: resource_four_id,
-                            position: 1
+                            id: resource_four_id
                           }]
                         }, {
                           name: 'Cloud Technologies',
                           info: 'Build modern cloud infrastructures using tools such as AWS, Docker and Kubernetes.',
                           createdBy: user_id,
                           resources: [{
-                            id: resource_id,
-                            position: 0
+                            id: resource_id
                           }, {
-                            id: resource_two_id,
-                            position: 1
+                            id: resource_two_id
                           }]
                         }, {
                           name: 'Formal Specification',
                           info: 'Formally specify any system using precise language and formal processes.',
                           createdBy: user_id,
                           resources: [{
-                            id: resource_five_id,
-                            position: 2
+                            id: resource_five_id
                           }]
                         }, {
                           name: 'Management Psychology',

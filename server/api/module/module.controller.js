@@ -12,6 +12,7 @@
 
 import jsonpatch from 'fast-json-patch';
 import Module from './module.model';
+import Resource from '../resource/resource.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -76,6 +77,17 @@ export function index(req, res) {
 export function show(req, res) {
   return Module.find().where('_id')
     .equals(req.params.id)
+    .exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function addResource(req, res) {
+  console.log(req.params);
+  return Module.findOneAndUpdate({
+      _id: req.params.module_id
+    }, {$push: {"resources": {id: req.params.resource_id}}})
     .exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
